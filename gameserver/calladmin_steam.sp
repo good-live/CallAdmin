@@ -518,7 +518,7 @@ public void CallAdmin_OnReportPost(int client, int target, const char[] reason)
 	g_iLastReportID = CallAdmin_GetReportID();
 	
 	char sMessage[4096];
-	Format(sMessage, sizeof(sMessage), "\nNew report on server: %s (%s:%d)\nReportID: %d\nReporter: %s (%s)\nTarget: %s (%s)\nReason: %s\nJoin server: steam://connect/%s:%d\nWhen in game, type !calladmin_handle %d or /calladmin_handle %d in chat to handle this report", sServerName, sServerIP, serverPort, g_iLastReportID, sClientName, sClientID, sTargetName, sTargetID, reason, sServerIP, serverPort, g_iLastReportID, g_iLastReportID);
+	Format(sMessage, sizeof(sMessage), "\nNew report on server: %s (%s:%d)\nReportID: %d\nReporter: %s (%s)\nTarget: %s (%s)\nReason: %s\nJoin server: steam://connect/%s:%d\nWhen in game, type !calladmin_handle %d or /calladmin_handle %d in chat to handle this report\nTick:%i", sServerName, sServerIP, serverPort, g_iLastReportID, sClientName, sClientID, sTargetName, sTargetID, reason, sServerIP, serverPort, g_iLastReportID, g_iLastReportID, GetGameTickCount());
 							 
 	MessageBot_SendMessage(OnMessageResultReceived, sMessage);
 }
